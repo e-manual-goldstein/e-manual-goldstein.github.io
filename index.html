@@ -1,897 +1,1276 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Shortall - Professional Resource Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
-    <style>
-        /* MANDATORY RESPONSIVE TEXT PROTECTION */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        h1, h2, h3, h4, h5, h6, p, li, span, div, strong {
-            hyphens: auto;
-            -webkit-hyphens: auto;
-            -moz-hyphens: auto;
-        }
-
-        :root {
-            --profile-blue: #62B5E5;
-            --profile-dark-blue: #0076A8;
-            --profile-black: #000000;
-            --profile-gray: #53565A;
-            --profile-light-gray: #A0A0A0;
-            --profile-bg-gray: #F5F5F5;
-            --profile-white: #FFFFFF;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            background: #ffffff;
-            color: #2c2c2c;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Fixed Header */
-        .profile-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
-            background: var(--profile-black);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 50px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .header-title {
-            color: white;
-            font-size: 16px;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        /* Main Container */
-        .profile-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 100px 60px 60px 60px;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, var(--profile-dark-blue) 0%, var(--profile-black) 100%);
-            border-radius: 12px;
-            padding: 60px;
-            margin-bottom: 50px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(98, 181, 229, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            min-width: 0;
-        }
-
-        .hero-photo {
-            position: relative;
-            z-index: 2;
-            flex-shrink: 0;
-        }
-
-        .hero-photo img {
-            display: block;
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 4px solid var(--profile-blue);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
-        }
-
-        .hero-name {
-            font-size: 56px;
-            font-weight: 300;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-        }
-
-        .hero-role {
-            font-size: 28px;
-            color: var(--profile-blue);
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
-
-        .hero-meta {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .meta-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(98, 181, 229, 0.2);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .meta-icon .material-icons-outlined {
-            color: var(--profile-blue);
-            font-size: 24px;
-        }
-
-        .meta-content strong {
-            display: block;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .meta-content span {
-            font-size: 16px;
-            color: white;
-            font-weight: 400;
-        }
-
-        /* Section Headers */
-        .section-header {
-            margin: 60px 0 35px 0;
-            padding-bottom: 15px;
-            border-bottom: 3px solid var(--profile-blue);
-        }
-
-        .section-title {
-            font-size: 36px;
-            font-weight: 400;
-            color: var(--profile-black);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-title .material-icons-outlined {
-            color: var(--profile-blue);
-            font-size: 40px;
-        }
-
-        /* Current Role Description */
-        .role-description {
-            background: linear-gradient(135deg, rgba(98, 181, 229, 0.05) 0%, rgba(98, 181, 229, 0.02) 100%);
-            border-left: 5px solid var(--profile-blue);
-            border-radius: 8px;
-            padding: 35px;
-            margin-bottom: 50px;
-            font-size: 17px;
-            line-height: 1.8;
-            color: var(--profile-gray);
-        }
-
-        /* Employment Timeline */
-        .employment-timeline {
-            position: relative;
-            padding-left: 40px;
-            margin: 40px 0;
-        }
-
-        .employment-timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            transform: translateX(-50%);
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--profile-blue) 0%, var(--profile-light-gray) 100%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 35px;
-            padding-left: 30px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -20px;
-            transform: translateX(-50%);
-            top: 5px;
-            width: 14px;
-            height: 14px;
-            background: var(--profile-blue);
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px var(--profile-blue);
-        }
-
-        .timeline-employer {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--profile-black);
-            margin-bottom: 8px;
-        }
-
-        .timeline-details {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 15px;
-            color: var(--profile-gray);
-        }
-
-        .timeline-detail {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .timeline-detail .material-icons-outlined {
-            font-size: 18px;
-            color: var(--profile-blue);
-        }
-
-        /* Qualifications Grid */
-        .qualifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .qualification-card {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .qualification-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--profile-blue);
-        }
-
-        .qualification-card:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
-            border-color: var(--profile-blue);
-        }
-
-        .qualification-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(98, 181, 229, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .qualification-icon .material-icons-outlined {
-            font-size: 32px;
-            color: var(--profile-blue);
-        }
-
-        .qualification-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--profile-black);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .qualification-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            font-size: 15px;
-            color: var(--profile-gray);
-        }
-
-        .qualification-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .qualification-meta-item .material-icons-outlined {
-            font-size: 18px;
-            color: var(--profile-light-gray);
-        }
-
-        /* Project Cards */
-        .projects-container {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
-            transform: translateY(-3px);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, var(--profile-dark-blue) 0%, var(--profile-black) 100%);
-            padding: 35px 40px;
-            color: white;
-            position: relative;
-        }
-
-        .project-number {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 72px;
-            font-weight: 700;
-            color: rgba(98, 181, 229, 0.15);
-            line-height: 1;
-        }
-
-        .project-title {
-            font-size: 28px;
-            font-weight: 500;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .project-duration {
-            font-size: 16px;
-            color: var(--profile-blue);
-            font-weight: 400;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .project-duration .material-icons-outlined {
-            font-size: 20px;
-        }
-
-        .project-body {
-            padding: 40px;
-        }
-
-        .project-description {
-            font-size: 17px;
-            line-height: 1.8;
-            color: var(--profile-gray);
-            margin-bottom: 30px;
-            padding: 25px;
-            background: var(--profile-bg-gray);
-            border-radius: 8px;
-            border-left: 4px solid var(--profile-blue);
-        }
-
-        .project-meta-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-bottom: 35px;
-            padding: 25px;
-            background: rgba(98, 181, 229, 0.03);
-            border-radius: 8px;
-        }
-
-        .project-meta-item {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .project-meta-label {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--profile-light-gray);
-            font-weight: 500;
-        }
-
-        .project-meta-value {
-            font-size: 16px;
-            color: var(--profile-black);
-            font-weight: 500;
-        }
-
-        .skills-section {
-            margin-top: 30px;
-        }
-
-        .skills-header {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--profile-black);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skills-header .material-icons-outlined {
-            color: var(--profile-blue);
-            font-size: 26px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-item {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover {
-            border-color: var(--profile-blue);
-            box-shadow: 0 4px 15px rgba(98, 181, 229, 0.1);
-        }
-
-        .skill-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--profile-dark-blue);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .skill-title::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--profile-blue);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .skill-description {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--profile-gray);
-        }
-
-        /* Additional Information */
-        .additional-info {
-            background: linear-gradient(135deg, rgba(0, 118, 168, 0.05) 0%, rgba(98, 181, 229, 0.05) 100%);
-            border-radius: 12px;
-            padding: 45px;
-            margin: 50px 0;
-            border: 2px solid rgba(98, 181, 229, 0.2);
-        }
-
-        .additional-info-title {
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--profile-black);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .additional-info-title .material-icons-outlined {
-            color: var(--profile-blue);
-            font-size: 32px;
-        }
-
-        .additional-info-content {
-            font-size: 17px;
-            line-height: 1.9;
-            color: var(--profile-gray);
-        }
-
-        /* Footer */
-        .profile-footer {
-            text-align: center;
-            padding: 40px 0;
-            margin-top: 60px;
-            border-top: 2px solid var(--profile-bg-gray);
-        }
-
-        .footer-logo {
-            margin-bottom: 20px;
-        }
-
-        .footer-logo img {
-            height: 35px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            color: var(--profile-light-gray);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .profile-container {
-                padding: 90px 40px 40px 40px;
-            }
-
-            .hero-section {
-                padding: 45px;
-                gap: 35px;
-            }
-
-            .hero-photo img {
-                width: 180px;
-                height: 180px;
-            }
-
-            .hero-name {
-                font-size: 44px;
-            }
-
-            .hero-role {
-                font-size: 24px;
-            }
-
-            .qualifications-grid,
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .profile-header {
-                padding: 0 25px;
-                height: 50px;
-            }
-
-            .header-title {
-                font-size: 14px;
-            }
-
-            .profile-container {
-                padding: 80px 25px 30px 25px;
-            }
-
-            .hero-section {
-                padding: 35px 25px;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .hero-photo img {
-                width: 160px;
-                height: 160px;
-            }
-
-            .hero-name {
-                font-size: 36px;
-            }
-
-            .hero-role {
-                font-size: 20px;
-            }
-
-            .hero-meta {
-                grid-template-columns: 1fr;
-            }
-
-            .meta-item {
-                justify-content: center;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .project-header {
-                padding: 25px;
-            }
-
-            .project-title {
-                font-size: 24px;
-            }
-
-            .project-body {
-                padding: 25px;
-            }
-
-            .project-meta-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            .profile-header {
-                position: relative;
-            }
-
-            .profile-container {
-                padding-top: 20px;
-            }
-
-            .project-card,
-            .qualification-card {
-                page-break-inside: avoid;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kevin Shortall - Professional Resource Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+  <style>
+    /* MANDATORY RESPONSIVE TEXT PROTECTION */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    span,
+    div,
+    strong {
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+    }
+
+    :root {
+      --profile-blue: #62B5E5;
+      --profile-dark-blue: #0076A8;
+      --profile-black: #000000;
+      --profile-gray: #53565A;
+      --profile-light-gray: #A0A0A0;
+      --profile-bg-gray: #F5F5F5;
+      --profile-white: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      background: #ffffff;
+      color: #2c2c2c;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Fixed Header */
+    .profile-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: var(--profile-black);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-title {
+      color: white;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Container */
+    .profile-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 100px 60px 60px 60px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, var(--profile-dark-blue) 0%, var(--profile-black) 100%);
+      border-radius: 12px;
+      padding: 60px;
+      margin-bottom: 50px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(98, 181, 229, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hero-photo {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 4px solid var(--profile-blue);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-name {
+      font-size: 56px;
+      font-weight: 300;
+      margin-bottom: 15px;
+      letter-spacing: -1px;
+    }
+
+    .hero-role {
+      font-size: 28px;
+      color: var(--profile-blue);
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .meta-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(98, 181, 229, 0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .meta-icon .material-icons-outlined {
+      color: var(--profile-blue);
+      font-size: 24px;
+    }
+
+    .meta-content strong {
+      display: block;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .meta-content span {
+      font-size: 16px;
+      color: white;
+      font-weight: 400;
+    }
+
+    /* Section Headers */
+    .section-header {
+      margin: 60px 0 35px 0;
+      padding-bottom: 15px;
+      border-bottom: 3px solid var(--profile-blue);
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--profile-black);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .section-title .material-icons-outlined {
+      color: var(--profile-blue);
+      font-size: 40px;
+    }
+
+    /* Current Role Description */
+    .role-description {
+      background: linear-gradient(135deg, rgba(98, 181, 229, 0.05) 0%, rgba(98, 181, 229, 0.02) 100%);
+      border-left: 5px solid var(--profile-blue);
+      border-radius: 8px;
+      padding: 35px;
+      margin-bottom: 50px;
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--profile-gray);
+    }
+
+    /* Employment Timeline */
+    .employment-timeline {
+      position: relative;
+      padding-left: 40px;
+      margin: 40px 0;
+    }
+
+    .employment-timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      transform: translateX(-50%);
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--profile-blue) 0%, var(--profile-light-gray) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 35px;
+      padding-left: 30px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      transform: translateX(-50%);
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      background: var(--profile-blue);
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 3px var(--profile-blue);
+    }
+
+    .timeline-employer {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--profile-black);
+      margin-bottom: 8px;
+    }
+
+    .timeline-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 15px;
+      color: var(--profile-gray);
+    }
+
+    .timeline-detail {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timeline-detail .material-icons-outlined {
+      font-size: 18px;
+      color: var(--profile-blue);
+    }
+
+    /* Qualifications Grid */
+    .qualifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .qualification-card {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .qualification-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--profile-blue);
+    }
+
+    .qualification-card:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+      border-color: var(--profile-blue);
+    }
+
+    .qualification-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(98, 181, 229, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .qualification-icon .material-icons-outlined {
+      font-size: 32px;
+      color: var(--profile-blue);
+    }
+
+    .qualification-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--profile-black);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .qualification-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 15px;
+      color: var(--profile-gray);
+    }
+
+    .qualification-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qualification-meta-item .material-icons-outlined {
+      font-size: 18px;
+      color: var(--profile-light-gray);
+    }
+
+    /* Project Cards */
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin: 40px 0;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+      transform: translateY(-3px);
+    }
+
+    .project-header {
+      background: linear-gradient(135deg, var(--profile-dark-blue) 0%, var(--profile-black) 100%);
+      padding: 35px 40px;
+      color: white;
+      position: relative;
+    }
+
+    .project-number {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 72px;
+      font-weight: 700;
+      color: rgba(98, 181, 229, 0.15);
+      line-height: 1;
+    }
+
+    .project-title {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-duration {
+      font-size: 16px;
+      color: var(--profile-blue);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-duration .material-icons-outlined {
+      font-size: 20px;
+    }
+
+    .project-body {
+      padding: 40px;
+    }
+
+    .project-description {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--profile-gray);
+      margin-bottom: 30px;
+      padding: 25px;
+      background: var(--profile-bg-gray);
+      border-radius: 8px;
+      border-left: 4px solid var(--profile-blue);
+    }
+
+    .project-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin-bottom: 35px;
+      padding: 25px;
+      background: rgba(98, 181, 229, 0.03);
+      border-radius: 8px;
+    }
+
+    .project-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .project-meta-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--profile-light-gray);
+      font-weight: 500;
+    }
+
+    .project-meta-value {
+      font-size: 16px;
+      color: var(--profile-black);
+      font-weight: 500;
+    }
+
+    .skills-section {
+      margin-top: 30px;
+    }
+
+    .skills-header {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--profile-black);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skills-header .material-icons-outlined {
+      color: var(--profile-blue);
+      font-size: 26px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-item {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      min-width: 0;
+      overflow-wrap: normal;
+      word-wrap: normal;
+      word-break: normal;
+      hyphens: none;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+    }
+
+    .skill-item:hover {
+      border-color: var(--profile-blue);
+      box-shadow: 0 4px 15px rgba(98, 181, 229, 0.1);
+    }
+
+    .skill-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--profile-dark-blue);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .skill-title::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--profile-blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .skill-description {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--profile-gray);
+    }
+
+    /* Additional Information */
+    .additional-info {
+      background: linear-gradient(135deg, rgba(0, 118, 168, 0.05) 0%, rgba(98, 181, 229, 0.05) 100%);
+      border-radius: 12px;
+      padding: 45px;
+      margin: 50px 0;
+      border: 2px solid rgba(98, 181, 229, 0.2);
+    }
+
+    .additional-info-title {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--profile-black);
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .additional-info-title .material-icons-outlined {
+      color: var(--profile-blue);
+      font-size: 32px;
+    }
+
+    .additional-info-content {
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--profile-gray);
+    }
+
+    /* Footer */
+    .profile-footer {
+      text-align: center;
+      padding: 40px 0;
+      margin-top: 60px;
+      border-top: 2px solid var(--profile-bg-gray);
+    }
+
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      height: 35px;
+    }
+
+    .footer-text {
+      font-size: 14px;
+      color: var(--profile-light-gray);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .profile-container {
+        padding: 90px 40px 40px 40px;
+      }
+
+      .hero-section {
+        padding: 45px;
+        gap: 35px;
+      }
+
+      .hero-photo img {
+        width: 180px;
+        height: 180px;
+      }
+
+      .hero-name {
+        font-size: 44px;
+      }
+
+      .hero-role {
+        font-size: 24px;
+      }
+
+      .qualifications-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .profile-header {
+        padding: 0 25px;
+        height: 50px;
+      }
+
+      .header-title {
+        font-size: 14px;
+      }
+
+      .profile-container {
+        padding: 80px 25px 30px 25px;
+      }
+
+      .hero-section {
+        padding: 35px 25px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-photo img {
+        width: 160px;
+        height: 160px;
+      }
+
+      .hero-name {
+        font-size: 36px;
+      }
+
+      .hero-role {
+        font-size: 20px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-item {
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .project-header {
+        padding: 25px;
+      }
+
+      .project-title {
+        font-size: 24px;
+      }
+
+      .project-body {
+        padding: 25px;
+      }
+
+      .project-meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .profile-header {
+        position: relative;
+      }
+
+      .profile-container {
+        padding-top: 20px;
+      }
+
+      .project-card,
+      .qualification-card {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Fixed Header -->
-    <div class="profile-header">
-        <div class="header-title">Kevin Shortall</div>
-        <div class="header-title">Professional Profile</div>
+  <!-- Fixed Header -->
+  <div class="profile-header">
+    <div class="header-title">Kevin Shortall</div>
+    <div class="header-title">Professional Profile</div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="profile-container">
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-name">Kevin Shortall</h1>
+        <div class="hero-role">Software Engineer and Technical Architect</div>
+
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="meta-icon">
+              <span class="material-icons-outlined">computer</span>
+            </div>
+            <div class="meta-content">
+              <strong>Proficiencies</strong>
+              <span>.NET | C# | MS SQL Server | AutoHotkey | MS Excel | PowerShell | Visual Studio</span>
+            </div>
+          </div>
+
+          <div class="meta-item">
+            <div class="meta-icon">
+              <span class="material-icons-outlined">work</span>
+            </div>
+            <div class="meta-content">
+              <strong>Current Role</strong>
+              <span>Solution Architect</span>
+            </div>
+          </div>
+
+          <div class="meta-item">
+            <div class="meta-icon">
+              <span class="material-icons-outlined">calendar_today</span>
+            </div>
+            <div class="meta-content">
+              <strong>Years of Experience</strong>
+              <span>13</span>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="profile.png" alt="Kevin Shortall">
+      </div>
     </div>
 
-    <!-- Main Container -->
-    <div class="profile-container">
-        
-        <!-- Hero Section -->
-        <div class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-name">Kevin Shortall</h1>
-                <div class="hero-role">Software Engineer and Technical Architect</div>
-                
-                <div class="hero-meta">
-                    <div class="meta-item">
-                        <div class="meta-icon">
-                            <span class="material-icons-outlined">computer</span>
-                        </div>
-                        <div class="meta-content">
-                            <strong>Proficiencies</strong>
-                            <span>.NET | C# | MS SQL Server | AutoHotkey | MS Excel | PowerShell | Visual Studio</span>
-                        </div>
-                    </div>
+    <!-- Current Role Description -->
+    <div class="role-description">
+      Kevin is a Solution Architect with extensive experience in the .NET ecosystem, specialising in principled
+      architectural design and
+      large-scale remediation of technical debt. Recently, he has lead the design and delivery of complex technical
+      solutions, supporting critical
+      business systems and employing multi-disciplinary techniques such as robotic process automation, systems
+      integration, event-driven architecture,
+      RESTful API design, Publish-Subscribe patterns, MSMQ, SQL Server Performance Tuning, business model prototyping,
+      and domain-driven design.
+      He has also led the design and delivery of a Platform Stabilisation Programme which identified and meticulously
+      addressed
+      high-risk systemic technical debt. With deep .NET expertise developed through prior object modelling and technical
+      leadership roles,
+      he applies architectural standards and best practices to ensure consistency across enterprise delivery.
+      He is a resolute advocate for the use of technology to improve business efficiency and effectiveness, and is
+      committed to delivering
+      solutions that are not only technically sound but also commercially viable and operationally sustainable.
+    </div>
 
-                    <div class="meta-item">
-                        <div class="meta-icon">
-                            <span class="material-icons-outlined">work</span>
-                        </div>
-                        <div class="meta-content">
-                            <strong>Current Role</strong>
-                            <span>Solution Architect</span>
-                        </div>
-                    </div>
-                    
-                    <div class="meta-item">
-                        <div class="meta-icon">
-                            <span class="material-icons-outlined">calendar_today</span>
-                        </div>
-                        <div class="meta-content">
-                            <strong>Years of Experience</strong>
-                            <span>13</span>
-                        </div>
-                    </div>
-                    
+    <!-- Employment History -->
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="material-icons-outlined">timeline</span>
+        Employment History
+      </h2>
+    </div>
 
-                    
-                   
-                </div>
-            </div>
-            <div class="hero-photo">
-                <img src="profile.png" alt="Kevin Shortall">
-            </div>
+    <div class="employment-timeline">
+      <div class="timeline-item">
+        <div class="timeline-employer">Independent Contractor</div>
+        <div class="timeline-details">
+          <div class="timeline-detail">
+            <span class="material-icons-outlined">schedule</span>
+            <span>3.5 Years</span>
+          </div>
+          <div class="timeline-detail">
+            <span class="material-icons-outlined">person</span>
+            <span>Business Object Modeller / Technical Team Lead / Senior Developer</span>
+          </div>
         </div>
+      </div>
 
-        <!-- Current Role Description -->
-        <div class="role-description">
-            Kevin is a Solution Architect with extensive experience in the .NET ecosystem, specialising in principled architectural design and 
-            large-scale remediation of technical debt. Recently, he has lead the design and delivery of complex technical solutions, supporting critical 
-            business systems and employing multi-disciplinary techniques such as robotic process automation, systems integration, event-driven architecture, 
-            RESTful API design, Publish-Subscribe patterns, MSMQ, SQL Server Performance Tuning, business model prototyping, and domain-driven design.
-            He has also led the design and delivery of a Platform Stabilisation Programme which identified and meticulously addressed 
-            high-risk systemic technical debt. With deep .NET expertise developed through prior object modelling and technical leadership roles,
-            he applies architectural standards and best practices to ensure consistency across enterprise delivery.
-            He is a resolute advocate for the use of technology to improve business efficiency and effectiveness, and is committed to delivering 
-            solutions that are not only technically sound but also commercially viable and operationally sustainable.
+      <div class="timeline-item">
+        <div class="timeline-employer">FinRegGlobal</div>
+        <div class="timeline-details">
+          <div class="timeline-detail">
+            <span class="material-icons-outlined">schedule</span>
+            <span>6 Months</span>
+          </div>
+          <div class="timeline-detail">
+            <span class="material-icons-outlined">person</span>
+            <span>Senior Developer</span>
+          </div>
         </div>
+      </div>
 
-        <!-- Employment History -->
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="material-icons-outlined">timeline</span>
-                Employment History
-            </h2>
+      <div class="timeline-item">
+        <div class="timeline-employer">Deloitte Ireland LLP</div>
+        <div class="timeline-details">
+          <div class="timeline-detail">
+            <span class="material-icons-outlined">schedule</span>
+            <span>8 Years</span>
+          </div>
+          <div class="timeline-detail">
+            <span class="material-icons-outlined">person</span>
+            <span>Junior Developer → Senior Developer → Solution Architect</span>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="employment-timeline">
-            <div class="timeline-item">
-                <div class="timeline-employer">Independent Contractor</div>
-                <div class="timeline-details">
-                    <div class="timeline-detail">
-                        <span class="material-icons-outlined">schedule</span>
-                        <span>3.5 Years</span>
-                    </div>
-                    <div class="timeline-detail">
-                        <span class="material-icons-outlined">person</span>
-                        <span>Business Object Modeller / Technical Team Lead / Senior Developer</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Qualifications -->
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="material-icons-outlined">school</span>
+        Qualifications
+      </h2>
+    </div>
 
-            <div class="timeline-item">
-                <div class="timeline-employer">FinRegGlobal</div>
-                <div class="timeline-details">
-                    <div class="timeline-detail">
-                        <span class="material-icons-outlined">schedule</span>
-                        <span>6 Months</span>
-                    </div>
-                    <div class="timeline-detail">
-                        <span class="material-icons-outlined">person</span>
-                        <span>Senior Developer</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-employer">Deloitte Ireland LLP</div>
-                <div class="timeline-details">
-                    <div class="timeline-detail">
-                        <span class="material-icons-outlined">schedule</span>
-                        <span>8 Years</span>
-                    </div>
-                    <div class="timeline-detail">
-                        <span class="material-icons-outlined">person</span>
-                        <span>Junior Developer → Senior Developer → Solution Architect</span>
-                    </div>
-                </div>
-            </div>
+    <div class="qualifications-grid">
+      <div class="qualification-card">
+        <div class="qualification-icon">
+          <span class="material-icons-outlined">school</span>
         </div>
-
-        <!-- Qualifications -->
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="material-icons-outlined">school</span>
-                Qualifications
-            </h2>
+        <div class="qualification-title">BA (Hons) in Nanoscience, Physics, and Chemistry of Advanced Materials</div>
+        <div class="qualification-meta">
+          <div class="qualification-meta-item">
+            <span class="material-icons-outlined">workspace_premium</span>
+            <span>Degree - Formal Qualification</span>
+          </div>
+          <div class="qualification-meta-item">
+            <span class="material-icons-outlined">account_balance</span>
+            <span>Trinity College Dublin</span>
+          </div>
         </div>
-
-        <div class="qualifications-grid">
-            <div class="qualification-card">
-                <div class="qualification-icon">
-                    <span class="material-icons-outlined">school</span>
-                </div>
-                <div class="qualification-title">BA (Hons) in Nanoscience, Physics, and Chemistry of Advanced Materials</div>
-                <div class="qualification-meta">
-                    <div class="qualification-meta-item">
-                        <span class="material-icons-outlined">workspace_premium</span>
-                        <span>Degree - Formal Qualification</span>
-                    </div>
-                    <div class="qualification-meta-item">
-                        <span class="material-icons-outlined">account_balance</span>
-                        <span>Trinity College Dublin</span>
-                    </div>
-                </div>
-            </div>
-            <div class="qualification-card">
-                <div class="qualification-icon">
-                    <span class="material-icons-outlined">verified</span>
-                </div>
-                <div class="qualification-title">Microsoft Copilot Fundamentals</div>
-                <div class="qualification-meta">
-                    <div class="qualification-meta-item">
-                        <span class="material-icons-outlined">workspace_premium</span>
-                        <span>Certificate - Formal Certification</span>
-                    </div>
-                    <div class="qualification-meta-item">
-                        <span class="material-icons-outlined">business</span>
-                        <span>Microsoft</span>
-                    </div>
-                </div>
-            </div>
-
-            
+      </div>
+      <div class="qualification-card">
+        <div class="qualification-icon">
+          <span class="material-icons-outlined">verified</span>
         </div>
-
-        <!-- Project Experience -->
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="material-icons-outlined">folder_special</span>
-                Professional Experience
-            </h2>
+        <div class="qualification-title">Microsoft Copilot Fundamentals</div>
+        <div class="qualification-meta">
+          <div class="qualification-meta-item">
+            <span class="material-icons-outlined">workspace_premium</span>
+            <span>Certificate - Formal Certification</span>
+          </div>
+          <div class="qualification-meta-item">
+            <span class="material-icons-outlined">business</span>
+            <span>Microsoft</span>
+          </div>
         </div>
-
-        <!-- Additional Information -->
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="material-icons-outlined">info</span>
-                Additional Information
-            </h2>
-        </div>
-
-        <div class="additional-info">
-            <div class="additional-info-title">
-                <span class="material-icons-outlined">person</span>
-                Professional Summary
-            </div>
-            <div class="additional-info-content">
-                Kevin brings over 12 years of comprehensive IT experience, specializing in architectural design, technical remediation, and large-scale platform 
-                development within complex enterprise environments. His career demonstrates exceptional technical depth combined with strategic thinking, 
-                particularly in legacy technology modernization and high-risk technical debt resolution.
-                <br><br>
-                His expertise spans the full spectrum of software development lifecycle, from initial architectural design through to production support and 
-                continuous improvement. Kevin has consistently demonstrated the ability to navigate complex technical constraints while delivering innovative 
-                solutions that balance immediate business needs with long-term platform sustainability.
-                <br><br>
-                Throughout his career, Kevin has built deep domain expertise, becoming a trusted technical advisor to senior stakeholders. 
-                His work on the Stabilisation Programme exemplifies his ability to tackle fundamental platform challenges, 
-                systematically addressing technical debt while maintaining operational stability.
-                <br><br>
-                Kevin's technical leadership extends beyond individual delivery to shaping team practices and organizational standards. 
-                From his experience in supporting and advising multiple development teams in best practices and principles of design, he has established himself 
-                as a key contributor to enterprise-wide quality and consistency.
-                <br><br>
-                His approach combines rigorous technical discipline with pragmatic problem-solving, consistently delivering solutions that meet immediate requirements
-                while positioning platforms for future evolution. Kevin's commitment to quality, coupled with his deep technical expertise and strategic mindset,
-                makes him an invaluable asset for complex architectural initiatives and platform transformation programs.
-            </div>
-        </div>
+      </div>
 
 
     </div>
+
+    <!-- Professional Experience -->
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="material-icons-outlined">folder_special</span>
+        Professional Experience
+      </h2>
+    </div>
+    <div class="projects-container">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-number">01</div>
+          <h3 class="project-title">Business Object Modelling Team</h3>
+          <div class="project-duration">
+            <span class="material-icons-outlined">event</span>
+            July 2015 – Sep 2019, May 2020 – Jan 2022, March 2023 - May 2026
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-description">
+            Kevin provided technical and object modelling support to the DSP, expanding his team's influence through
+            delivery of high-quality object models
+            and tailored insights to senior stakeholders on performance optimization, predictive analysis, and usage
+            reporting. Beyond core modelling
+            responsibilities, he led broader architectural initiatives including performance tuning, code refactoring,
+            model restructuring,
+            and standardising the integration of external services with internal platforms.
+            <br><br>
+            During his tenure on the team, Kevin established a comprehensive technical remediation initiative known as
+            the "Stabilistion Programme" to
+            address high-risk technical debt at the core of the department's strategic platforms. The programme involved
+            the meticulous refactoring of
+            problematic architectural components that had accumulated over time, reducing platform risk and enabling
+            sustainable long-term delivery.
+            This strategic initiative has been identified as a key driver for future platform evolution and team
+            direction.
+          </div>
+
+          <div class="project-meta-grid">
+            <div class="project-meta-item">
+              <div class="project-meta-label">Client</div>
+              <div class="project-meta-value">Department of Social Protection</div>
+            </div>
+            <div class="project-meta-item">
+              <div class="project-meta-label">Role</div>
+              <div class="project-meta-value">Solution Architect, Senior Developer and Technical Team Lead</div>
+            </div>
+            <div class="project-meta-item">
+              <div class="project-meta-label">Duration</div>
+              <div class="project-meta-value">9 Years</div>
+            </div>
+          </div>
+
+          <div class="skills-section">
+            <div class="skills-header">
+              <span class="material-icons-outlined">psychology</span>
+              Key Skills & Competencies
+            </div>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-title">Architectural Design & Technical Leadership</div>
+                <div class="skill-description">Leading comprehensive architectural remediation initiatives, designing
+                  sustainable solutions for complex
+                  platform challenges, and providing strategic technical direction.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Code Quality, Standards Leadership & Governance</div>
+                <div class="skill-description">Establishing and maintaining code quality standards, leading governance
+                  initiatives, and ensuring adherence
+                  to best practices across teams.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Strategic Platform Prototyping & Domain Expertise</div>
+                <div class="skill-description">Prototyping strategic platform capabilities, developing deep domain
+                  expertise in social welfare systems
+                  and business object modelling.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Performance Optimization & Complex Problem-Solving</div>
+                <div class="skill-description">Conducting sophisticated performance tuning, solving complex technical
+                  challenges, and delivering tailored
+                  insights on optimization strategies.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Platform Architecture & Codebase Decoupling</div>
+                <div class="skill-description">Leading architectural initiatives including code refactoring, model
+                  restructuring, and strategic codebase
+                  decoupling to improve maintainability.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Custom Analysis Tools & Architectural Insights</div>
+                <div class="skill-description">Developing custom analysis tools for predictive analysis and usage
+                  reporting, providing senior stakeholders
+                  with actionable architectural insights.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Trusted Advisor & Cross-Functional Support</div>
+                <div class="skill-description">Serving as a trusted advisor to senior stakeholders, providing
+                  cross-functional support, and expanding team
+                  influence through high-quality delivery.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Technical Debt Remediation & Deep Platform Expertise</div>
+                <div class="skill-description">Systematic identification and resolution of high-risk technical debt,
+                  deep understanding of legacy platform
+                  constraints, and meticulous refactoring of problematic components.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Object Modelling Standards & Governance</div>
+                <div class="skill-description">Establishing and enforcing object modelling standards across enterprise
+                  delivery teams through sustained engagement with project delivery teams.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 PRB Automation -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-number">02</div>
+          <h3 class="project-title">PRB Automation</h3>
+          <div class="project-duration">
+            <span class="material-icons-outlined">event</span>
+            February 2024 – August 2025
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-description">
+            Design and delivery of a sophisticated object model supporting the full automation of online customer claim
+            application processing.
+            The automation framework integrated multiple departmental systems through REST APIs, Publish-Subscribe
+            patterns,
+            MSMQ, and shared databases. The project delivered exceptional outcomes, enabling seamless automated
+            processing of
+            complex benefit eligibility evaluation and realising significant operational efficiencies.
+          </div>
+
+          <div class="project-meta-grid">
+            <div class="project-meta-item">
+              <div class="project-meta-label">Client</div>
+              <div class="project-meta-value">Department of Social Protection</div>
+            </div>
+            <div class="project-meta-item">
+              <div class="project-meta-label">Role</div>
+              <div class="project-meta-value">Business Object Modeller / Technical Team Lead</div>
+            </div>
+            <div class="project-meta-item">
+              <div class="project-meta-label">Duration</div>
+              <div class="project-meta-value">18 months</div>
+            </div>
+          </div>
+
+          <div class="skills-section">
+            <div class="skills-header">
+              <span class="material-icons-outlined">psychology</span>
+              Key Skills & Competencies
+            </div>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-title">Complex Object Model Design & Domain-Driven Design</div>
+                <div class="skill-description">Architecting sophisticated object models for complex benefit eligibility
+                  evaluation,
+                  applying domain-driven design principles to model intricate business rules.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Multi-System Integration & API Design</div>
+                <div class="skill-description">Integrating multiple departmental systems through REST APIs, designing
+                  robust integration patterns,
+                  and ensuring seamless data flow across system boundaries.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Event-Driven Architecture & Asynchronous Processing</div>
+                <div class="skill-description">Implementing Publish-Subscribe patterns, MSMQ messaging, and asynchronous
+                  processing workflows
+                  for scalable automation.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Technical Stack & Performance Excellence</div>
+                <div class="skill-description">Delivering high-performance solutions using modern technical stacks,
+                  optimizing for efficiency
+                  and scalability.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Shared Database Integration & Legacy System Constraints</div>
+                <div class="skill-description">Navigating complex legacy system constraints, designing integration
+                  solutions that respect
+                  existing architectural boundaries.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Azure DevOps & Governance</div>
+                <div class="skill-description">Managing development lifecycle through Azure DevOps, ensuring governance
+                  and quality
+                  standards throughout delivery.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Cross-Functional Collaboration & Stakeholder Management</div>
+                <div class="skill-description">Working effectively across multiple teams, managing stakeholder
+                  expectations, and
+                  facilitating cross-functional collaboration.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Business Requirements Analysis & Iterative Refinement</div>
+                <div class="skill-description">Analyzing complex business requirements, translating them into technical
+                  solutions,
+                  and iteratively refining designs based on feedback.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Delivery Excellence & Operational Impact</div>
+                <div class="skill-description">Delivering exceptional outcomes that realize significant operational
+                  efficiencies
+                  and enable seamless automated processing.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 Architecture Service Design Team-->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-number">03</div>
+          <h3 class="project-title">Architecture Service Design Team</h3>
+          <div class="project-duration">
+            <span class="material-icons-outlined">event</span>
+            August 2022 – Feb 2023
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-description">
+            Kevin provided technical and architectural support to the DSP in his role on the Architecture Services
+            Design team. As part of his role he explored and prototyped options for a standardised integration pattern
+            to be used by both internal and external systems when communicating with the department's strategic business platform.
+          </div>
+
+          <div class="project-meta-grid">
+            <div class="project-meta-item">
+              <div class="project-meta-label">Client</div>
+              <div class="project-meta-value">Department of Social Protection</div>
+            </div>
+            <div class="project-meta-item">
+              <div class="project-meta-label">Role</div>
+              <div class="project-meta-value">Technical Architect</div>
+            </div>
+            <div class="project-meta-item">
+              <div class="project-meta-label">Duration</div>
+              <div class="project-meta-value">6 months</div>
+            </div>
+          </div>
+
+          <div class="skills-section">
+            <div class="skills-header">
+              <span class="material-icons-outlined">psychology</span>
+              Key Skills & Competencies
+            </div>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-title">Strategic Platform Analysis & Technical Debt Discovery</div>
+                <div class="skill-description">Conducting comprehensive platform analysis, identifying technical debt
+                  patterns, and assessing architectural risks.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Architectural Exploration & Emerging Standards</div>
+                <div class="skill-description">Exploring and prototyping standardized integration patterns for internal
+                  and external system communication.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Foundation of Stabilisation Strategy</div>
+                <div class="skill-description">Laying the groundwork for the Stabilisation Programme through
+                  strategic architectural insights and recommendations.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 FinReg Product Development Team-->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-number">04</div>
+          <h3 class="project-title">FinReg Product Development Team</h3>
+          <div class="project-duration">
+            <span class="material-icons-outlined">event</span>
+            Feb 2022 – Aug 2022
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-description">
+            Kevin performed the role of Senior Backend Developer on the product development team, creating bespoke .NET
+            plugins for a low-code web-application which facilitated custom functionality tailored to meet customer
+            requirements.
+          </div>
+
+          <div class="project-meta-grid">
+            <div class="project-meta-item">
+              <div class="project-meta-label">Employer</div>
+              <div class="project-meta-value">FinRegGlobal</div>
+            </div>
+            <div class="project-meta-item">
+              <div class="project-meta-label">Role</div>
+              <div class="project-meta-value">Senior Backend Developer</div>
+            </div>
+            <div class="project-meta-item">
+              <div class="project-meta-label">Duration</div>
+              <div class="project-meta-value">6 months</div>
+            </div>
+          </div>
+
+          <div class="skills-section">
+            <div class="skills-header">
+              <span class="material-icons-outlined">psychology</span>
+              Key Skills & Competencies
+            </div>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-title">Custom Plugin Architecture & Query Engine Design</div>
+                <div class="skill-description">Designing and implementing bespoke .NET plugins for low-code platforms,
+                  creating custom query engines tailored to customer requirements.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Test Automation & Reliability Engineering</div>
+                <div class="skill-description">Building comprehensive test automation frameworks, ensuring code
+                  reliability and quality through systematic testing approaches.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Client-Side Test Infrastructure Improvements</div>
+                <div class="skill-description">Enhancing client-side testing infrastructure, improving test coverage and
+                  reliability across the application stack.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Code Quality & Standards Advocacy</div>
+                <div class="skill-description">Championing code quality standards, promoting best practices, and
+                  ensuring adherence to development standards.</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-title">Mentoring & Developer Coaching</div>
+                <div class="skill-description">Providing technical mentorship to team members, coaching on best
+                  practices, and building team capability.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <!-- Additional Information -->
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="material-icons-outlined">info</span>
+        Additional Information
+      </h2>
+    </div>
+
+    <div class="additional-info">
+      <div class="additional-info-title">
+        <span class="material-icons-outlined">person</span>
+        Professional Summary
+      </div>
+      <div class="additional-info-content">
+        Kevin brings over 12 years of comprehensive IT experience, specializing in architectural design, technical
+        remediation, and large-scale platform
+        development within complex enterprise environments. His career demonstrates exceptional technical depth combined
+        with strategic thinking,
+        particularly in legacy technology modernization and high-risk technical debt resolution.
+        <br><br>
+        His expertise spans the full spectrum of software development lifecycle, from initial architectural design
+        through to production support and
+        continuous improvement. Kevin has consistently demonstrated the ability to navigate complex technical
+        constraints while delivering innovative
+        solutions that balance immediate business needs with long-term platform sustainability.
+        <br><br>
+        Throughout his career, Kevin has built deep domain expertise, becoming a trusted technical advisor to senior
+        stakeholders.
+        His work on the Stabilisation Programme exemplifies his ability to tackle fundamental platform challenges,
+        systematically addressing technical debt while maintaining operational stability.
+        <br><br>
+        Kevin's technical leadership extends beyond individual delivery to shaping team practices and organizational
+        standards.
+        From his experience in supporting and advising multiple development teams in best practices and principles of
+        design, he has established himself
+        as a key contributor to enterprise-wide quality and consistency.
+        <br><br>
+        His approach combines rigorous technical discipline with pragmatic problem-solving, consistently delivering
+        solutions that meet immediate requirements
+        while positioning platforms for future evolution. Kevin's commitment to quality, coupled with his deep technical
+        expertise and strategic mindset,
+        makes him an invaluable asset for complex architectural initiatives and platform transformation programs.
+      </div>
+    </div>
+
+
+  </div>
 
 </body>
+
 </html>
